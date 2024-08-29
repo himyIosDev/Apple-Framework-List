@@ -17,8 +17,6 @@ struct FrameworkDetailVIew: View {
         //
         VStack {
             //
-            XDismissBtn(isShowingDetailView: $isShowingDetailView)
-            
             Spacer()
             
             // frame work item
@@ -34,8 +32,13 @@ struct FrameworkDetailVIew: View {
                 isShowingSafariVIew = true
                 
             } label: {
-                AFButton(textTitle: "Learn More")
+                //
+//                AFButton(textTitle: "Learn More")
+                Label("Learn More", systemImage: "book.fill")
             }
+            .buttonStyle(.bordered)
+            .controlSize(.large)
+            .tint(.green)
         }
         .fullScreenCover(isPresented: $isShowingSafariVIew, content: {
             SafariView(url: URL(string: framework.urlString) ?? URL(string: "www.apple.com")!)
